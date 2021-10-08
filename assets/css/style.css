@@ -111,19 +111,19 @@ body{
 .fila { 
     height: 100%;
     width: 100%;
-    
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 5%;
 }
 .Botonera{
     display: grid;
     height: 100%;
     width: 100%;
-    align-items: center;
-    justify-items: center;
 }
 
 .botonCuentas{
     background-color: #6D9886;
-    width: 19%;
+    width: 17.5%;
     color: #FFFFFF;
     margin: 2px;
 }
@@ -133,7 +133,7 @@ body{
     color: #FFFFFF;
     text-align: center;
     justify-content: center;
-    width: 19%;
+    width: 17.5%;
     margin: 2px;
 }
 
@@ -142,7 +142,7 @@ body{
     color: #FFFFFF;
     text-align: center;
     justify-content: center;
-    width: 19%;
+    width: 17.5%;
     margin: 2px;
 }
 
@@ -151,6 +151,6 @@ body{
     background-color: #D9CAB3;
     text-align: center;
     justify-content: center;
-    width: 59%;
+    width: 55%;
     margin: 2px;
 }
