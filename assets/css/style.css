@@ -51,10 +51,11 @@ body{
     margin-right: auto;
     width: 100%;
     height: 25%;
+    display: flex;
 }
 
 .divTeclas{
-    background-color: rebeccapurple;
+    background-color: #333333;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -80,4 +81,76 @@ body{
 .fotoSize{
     height: 10%;
     width: 5%;
+}
+
+
+.divInputsComplete{
+    text-align: end;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.cuentaAnterior{
+    color: #FFFFFF;
+    justify-content: center;
+    align-items: center;
+    text-align: end;
+    height: 25%;
+}
+
+.cuentaActual{
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    text-align: end;
+    height: 75%;
+}
+
+
+.fila { 
+    height: 100%;
+    width: 100%;
+    
+}
+.Botonera{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+}
+
+.botonCuentas{
+    background-color: #6D9886;
+    width: 19%;
+    color: #FFFFFF;
+    margin: 2px;
+}
+
+.botonNumero {
+    background-color: #202020;
+    color: #FFFFFF;
+    text-align: center;
+    justify-content: center;
+    width: 19%;
+    margin: 2px;
+}
+
+.botonEliminarTodo {
+    background-color: #D84747;
+    color: #FFFFFF;
+    text-align: center;
+    justify-content: center;
+    width: 19%;
+    margin: 2px;
+}
+
+.botonIgual{
+    color: #FFFFFF;
+    background-color: #D9CAB3;
+    text-align: center;
+    justify-content: center;
+    width: 59%;
+    margin: 2px;
 }
