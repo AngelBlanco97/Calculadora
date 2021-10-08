@@ -4,6 +4,10 @@ body{
     background-color: #E5E5E5;
 }
 
+.named{
+    font-family: 'Lobster', cursive;
+}
+
 .general {
     background-color: #E5E5E5;
     height: 100%;
