@@ -20,20 +20,74 @@ function sumar() {
     console.log(cuenta);
 }
 
-function igualar(){
-    var accion = cuenta[1];
+
+function restar() { 
+    let accion = "-";
 
     var entrada = document.getElementById("entrada");
     var input = entrada.innerHTML;
 
-    var array = input.split(accion);
-    console.log(array);
+    cuenta.push(input);
+    cuenta.push(accion);
 
-    cuenta.push(array[1]);
+    if (input == "" || input == "0") {
+        entrada.innerHTML = accion;
+    } else {
+        entrada.innerHTML = input + accion;
+    }
 
-    console.log(cuenta);
+}
 
-    actualizacion();
+function multiplicar() { 
+    let accion = "*";
+
+    var entrada = document.getElementById("entrada");
+    var input = entrada.innerHTML;
+
+    cuenta.push(input);
+    cuenta.push(accion);
+
+    if (input == "" || input == "0") {
+        entrada.innerHTML = accion;
+    } else {
+        entrada.innerHTML = input + accion;
+    }
+
+}
+function dividir() { 
+    let accion = "÷";
+
+    var entrada = document.getElementById("entrada");
+    var input = entrada.innerHTML;
+
+    cuenta.push(input);
+    cuenta.push(accion);
+
+    if (input == "" || input == "0") {
+        entrada.innerHTML = accion;
+    } else {
+        entrada.innerHTML = input + accion;
+    }
+
+}
+
+
+function igualar(){
+    var entrada = document.getElementById("entrada");
+    var input = entrada.innerHTML;
+
+    if (input == "0" || input ==""){
+        cuenta.length = 0;
+    } else { 
+        var accion = cuenta[1];
+        var entrada = document.getElementById("entrada");
+        var input = entrada.innerHTML;
+        var array = input.split(accion);
+        console.log(array);
+        cuenta.push(array[1]);
+        console.log(cuenta);
+        actualizacion();
+    }
 }
 
 
@@ -44,15 +98,35 @@ function actualizacion() {
     
     var accion = acc.charAt(0);
 
-    if (accion = "+"){
-        var entrada = document.getElementById("entrada");
-        var input = entrada.innerHTML;
-        var labelCuenta = document.getElementById("labelCuenta");
-        labelCuenta.innerHTML = input;
 
-        entrada.innerHTML = (parseInt(num1) + parseInt(num2));
-    } else { 
-        alert("cambia txt")
+    switch (accion) {
+        case "+":
+            var entrada = document.getElementById("entrada");
+            var input = entrada.innerHTML;
+            var labelCuenta = document.getElementById("labelCuenta");
+            labelCuenta.innerHTML = input;
+            entrada.innerHTML = (parseFloat(num1) + parseFloat(num2));
+            break;
+        case '-':
+            var entrada = document.getElementById("entrada");
+            var input = entrada.innerHTML;
+            var labelCuenta = document.getElementById("labelCuenta");
+            labelCuenta.innerHTML = input;
+            entrada.innerHTML = (parseFloat(num1) - parseFloat(num2));
+            break;
+        case '*': 
+            var entrada = document.getElementById("entrada");
+            var input = entrada.innerHTML;
+            var labelCuenta = document.getElementById("labelCuenta");
+            labelCuenta.innerHTML = input;
+            entrada.innerHTML = (parseFloat(num1) * parseFloat(num2));
+            break;
+        case '÷': 
+            var entrada = document.getElementById("entrada");
+            var input = entrada.innerHTML;
+            var labelCuenta = document.getElementById("labelCuenta");
+            labelCuenta.innerHTML = input;
+            entrada.innerHTML = (parseFloat(num1) / parseFloat(num2));
     }
     
     cuenta.length = 0;
@@ -201,7 +275,16 @@ function quitarDigito(){
     
 }    
 
+function setDecimales() {
+    var entrada = document.getElementById("entrada");
+    var input = entrada.innerHTML;
 
+    if (input == "0" || input == "") {
+        entrada.innerHTML = "0.";
+    } else {
+        entrada.innerHTML = input + ".";
+    }
+}
 
 function vaciarCuentas() { 
     var entrada = document.getElementById("entrada");
