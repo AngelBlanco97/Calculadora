@@ -105,28 +105,37 @@ function actualizacion() {
             var input = entrada.innerHTML;
             var labelCuenta = document.getElementById("labelCuenta");
             labelCuenta.innerHTML = input;
-            entrada.innerHTML = (parseFloat(num1) + parseFloat(num2));
+            resultado = (parseFloat(num1) + parseFloat(num2));
+            aprox = Number((resultado).toFixed(5));
+            entrada.innerHTML = aprox
             break;
         case '-':
             var entrada = document.getElementById("entrada");
             var input = entrada.innerHTML;
             var labelCuenta = document.getElementById("labelCuenta");
             labelCuenta.innerHTML = input;
-            entrada.innerHTML = (parseFloat(num1) - parseFloat(num2));
+            resultado = (parseFloat(num1) - parseFloat(num2));
+            aprox = Number((resultado).toFixed(5));
+            entrada.innerHTML = aprox
             break;
         case '*': 
             var entrada = document.getElementById("entrada");
             var input = entrada.innerHTML;
             var labelCuenta = document.getElementById("labelCuenta");
             labelCuenta.innerHTML = input;
-            entrada.innerHTML = (parseFloat(num1) * parseFloat(num2));
+            resultado = (parseFloat(num1) * parseFloat(num2));
+            aprox = Number((resultado).toFixed(5));
+            entrada.innerHTML = aprox
             break;
         case '÷': 
             var entrada = document.getElementById("entrada");
             var input = entrada.innerHTML;
             var labelCuenta = document.getElementById("labelCuenta");
             labelCuenta.innerHTML = input;
-            entrada.innerHTML = (parseFloat(num1) / parseFloat(num2));
+            resultado = (parseFloat(num1) / parseFloat(num2));
+            aprox = Number((resultado).toFixed(5));
+            entrada.innerHTML = aprox
+            break;
     }
     
     cuenta.length = 0;

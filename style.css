@@ -105,6 +105,7 @@ body{
     color: #FFFFFF;
     text-align: end;
     height: 75%;
+    word-wrap: break-word;
 }
 
 
