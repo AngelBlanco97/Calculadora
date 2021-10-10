@@ -19,7 +19,7 @@ body{
 }
 
 .styleText { 
-    filter: drop-shadow(0px 4px 2px #000000);
+    filter: drop-shadow(3px 4px 4px #3f3e3e);
     font-family: 'Roboto Mono', monospace;
 }
 
@@ -39,6 +39,7 @@ body{
     max-height: 900px;
     background-color: #333333;
     border-radius: 15px;
+    filter: drop-shadow(12px 12px 4px #868585);
     display: flex;
 }
 
@@ -154,4 +155,150 @@ body{
     justify-content: center;
     width: 55%;
     margin: 2px;
+}
+
+/*
+*
+*
+* BUSCADOR INTEGRADO EN DOCUMENTACION
+*
+*/
+
+.conGeneral { 
+    background-color: #414141;
+    width: 95%;
+    margin-top: 3%;
+    border-radius: 5px;
+    filter: drop-shadow(12px 10px 3px #868585);
+}
+
+
+.leftBrow{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.busqueda{
+    background-color: #4D4D4D;
+    border-radius: 7px;
+    margin-top: 4px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: white;
+    font-size: 13px;
+}
+
+.busqueda2{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: white;
+    font-size: 65%;
+}
+
+
+.rightBrow{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.circuloRojo { 
+    color: #ED0101;
+}
+
+.circuloVerde{
+    color: #04CB00;
+}
+
+.circuloAmarillo {
+    color: #ECF100;
+}
+
+.candado{
+    color: #72747A;
+}
+
+.color{
+    color: #72747A;
+}
+
+
+.zonaExplicaciones{
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.buttonFunctions{
+    background-color: #6D9886;
+    width: 9%;
+    color: #FFFFFF;
+    margin: 2px;
+}
+.buttonFunctionss{
+    background-color: #D9CAB3;
+    width: 9%;
+    color: #FFFFFF;
+    margin: 2px;
+}
+.buttonFunctionsss{
+    background-color: #D84747;
+    width: 9%;
+    color: #FFFFFF;
+    margin: 2px;
+}
+.buttonFunctionssss{
+    background-color: #D9CAB3;
+    width: 9%;
+    color: #FFFFFF;
+    margin: 2px;
+}
+
+
+
+
+
+.buttonGit {
+    color: #343a40;
+    border-color: #343a40;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.highlight {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f8f9fa;
+}
+
+.code { 
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #343a40;
+    color: #f8f9fa;
+}
+
+.p{
+    color: #0d6efd;
+}
+
+.f{
+    color: #fd7e14;
+}
+.p1{
+    color: #ffc107;
+}
+
+
+.v{
+    color: #0dcaf0;
+}
+
+.ff{
+    color: blueviolet;
+}
+
+.n { 
+    color:green;
 }
