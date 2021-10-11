@@ -178,16 +178,14 @@ function actualizacion() {
     var num1 = cuenta[0];
     var num2 = cuenta[2];
     var acc = cuenta[1];
-    
-    var switche = ""
+    var eleccion = ""
 
-    for (var i = 0; i < acc.length ; i++ ) {
+    for (var i = 0; i < acc.length; i++) {
         switche = switche + acc.charAt(i);
     }
-    
-    console.log()
 
-    switch (switche) {
+
+    switch (eleccion) {
         case "+":
             var entrada = document.getElementById("entrada");
             var input = entrada.innerHTML;
@@ -206,7 +204,7 @@ function actualizacion() {
             aprox = Number((resultado).toFixed(5));
             entrada.innerHTML = aprox
             break;
-        case '*': 
+        case '*':
             var entrada = document.getElementById("entrada");
             var input = entrada.innerHTML;
             var labelCuenta = document.getElementById("labelCuenta");
@@ -215,7 +213,7 @@ function actualizacion() {
             aprox = Number((resultado).toFixed(5));
             entrada.innerHTML = aprox
             break;
-        case '÷': 
+        case '÷':
             var entrada = document.getElementById("entrada");
             var input = entrada.innerHTML;
             var labelCuenta = document.getElementById("labelCuenta");
@@ -269,17 +267,15 @@ function actualizacion() {
             var input = entrada.innerHTML;
             var labelCuenta = document.getElementById("labelCuenta");
             labelCuenta.innerHTML = input;
-
             resultado = 1 / (Math.tan(num1));
             console.log(resultado);
             aprox = Number((resultado).toFixed(5));
             entrada.innerHTML = aprox;
             break;
     }
-    
+
     cuenta.length = 0;
 }
-
 
 function setCero() {
     let numero = 0; 

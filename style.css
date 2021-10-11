@@ -270,13 +270,13 @@ body{
     padding: 1rem;
     margin-bottom: 1rem;
     background-color: #f8f9fa;
+    border-radius: 8px;
 }
 
 .code { 
-    padding: 1rem;
-    margin-bottom: 1rem;
-    background-color: #343a40;
     color: #f8f9fa;
+    border-radius: 8px;
+    justify-content: flex-start;
 }
 
 .p{
@@ -296,7 +296,7 @@ body{
 }
 
 .ff{
-    color: blueviolet;
+    color: rgb(172, 113, 228);
 }
 
 .n { 
