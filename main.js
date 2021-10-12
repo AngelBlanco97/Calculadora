@@ -178,14 +178,14 @@ function actualizacion() {
     var num1 = cuenta[0];
     var num2 = cuenta[2];
     var acc = cuenta[1];
-    var eleccion = ""
+    var switche = ""
 
     for (var i = 0; i < acc.length; i++) {
         switche = switche + acc.charAt(i);
     }
 
 
-    switch (eleccion) {
+    switch (switche) {
         case "+":
             var entrada = document.getElementById("entrada");
             var input = entrada.innerHTML;
