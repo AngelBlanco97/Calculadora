@@ -8,6 +8,7 @@ function sumar() {
     var entrada = document.getElementById("entrada");
     var input = entrada.innerHTML;
 
+
     cuenta.push(input);
     cuenta.push(accion);
 
@@ -39,7 +40,7 @@ function restar() {
 }
 
 function multiplicar() { 
-    let accion = "*";
+    let accion = "x";
 
     var entrada = document.getElementById("entrada");
     var input = entrada.innerHTML;
@@ -175,10 +176,17 @@ function cotangente() {
 }
 
 function actualizacion() {
+    var entrada = document.getElementById("entrada");
+    var input = entrada.innerHTML;
+    var labelCuenta = document.getElementById("labelCuenta");
+
     var num1 = cuenta[0];
     var num2 = cuenta[2];
     var acc = cuenta[1];
     var switche = ""
+
+    num1 = numSinComas(num1);
+    num2 = numSinComas(num2);
 
     for (var i = 0; i < acc.length; i++) {
         switche = switche + acc.charAt(i);
@@ -187,90 +195,101 @@ function actualizacion() {
 
     switch (switche) {
         case "+":
-            var entrada = document.getElementById("entrada");
-            var input = entrada.innerHTML;
-            var labelCuenta = document.getElementById("labelCuenta");
             labelCuenta.innerHTML = input;
             resultado = (parseFloat(num1) + parseFloat(num2));
-            aprox = Number((resultado).toFixed(5));
+            console.log(resultado)
+            aprox = Number((resultado).toFixed(8));
+            aprox = numCommas(aprox);
             entrada.innerHTML = aprox
             break;
         case '-':
-            var entrada = document.getElementById("entrada");
-            var input = entrada.innerHTML;
-            var labelCuenta = document.getElementById("labelCuenta");
             labelCuenta.innerHTML = input;
             resultado = (parseFloat(num1) - parseFloat(num2));
-            aprox = Number((resultado).toFixed(5));
+            aprox = Number((resultado).toFixed(8));
             entrada.innerHTML = aprox
             break;
-        case '*':
-            var entrada = document.getElementById("entrada");
-            var input = entrada.innerHTML;
-            var labelCuenta = document.getElementById("labelCuenta");
+        case 'x':
             labelCuenta.innerHTML = input;
             resultado = (parseFloat(num1) * parseFloat(num2));
-            aprox = Number((resultado).toFixed(5));
+            aprox = Number((resultado).toFixed(8));
             entrada.innerHTML = aprox
             break;
         case '÷':
-            var entrada = document.getElementById("entrada");
-            var input = entrada.innerHTML;
-            var labelCuenta = document.getElementById("labelCuenta");
             labelCuenta.innerHTML = input;
             resultado = (parseFloat(num1) / parseFloat(num2));
-            aprox = Number((resultado).toFixed(5));
+            aprox = Number((resultado).toFixed(8));
             entrada.innerHTML = aprox
             break;
         case '√':
-            var entrada = document.getElementById("entrada");
-            var input = entrada.innerHTML;
-            var labelCuenta = document.getElementById("labelCuenta");
+            if (num1 == 0) {
+                labelCuenta.innerHTML = input;
+                resultado = Math.sqrt(num2);
+                aprox = Number((resultado).toFixed(8));
+                entrada.innerHTML = aprox;
+            } else {
             labelCuenta.innerHTML = input;
             resultado = Math.sqrt(num1);
-            aprox = Number((resultado).toFixed(5));
+            aprox = Number((resultado).toFixed(8));
             entrada.innerHTML = aprox;
+            }
             break;
         case 'sen':
-            var entrada = document.getElementById("entrada");
-            var input = entrada.innerHTML;
-            var labelCuenta = document.getElementById("labelCuenta");
-            labelCuenta.innerHTML = input;
-            resultado = Math.sin(num1);
-            console.log(resultado);
-            aprox = Number((resultado).toFixed(5));
+            if (num1 == 0){
+                labelCuenta.innerHTML = input;
+                resultado = Math.sin(num2 *(Math.PI / 180))
+                aprox = Number((resultado).toFixed(8));
+                entrada.innerHTML = aprox;
+            } else {
+                labelCuenta.innerHTML = input;
+            resultado = Math.sin(num1 *(Math.PI / 180))
+            aprox = Number((resultado).toFixed(8));
             entrada.innerHTML = aprox;
+            }
             break;
         case "cos":
-            var entrada = document.getElementById("entrada");
-            var input = entrada.innerHTML;
-            var labelCuenta = document.getElementById("labelCuenta");
-            labelCuenta.innerHTML = input;
+            if (num1 == 0) {
+                labelCuenta.innerHTML = input;
+                resultado = Math.cos(num2);
+                console.log(resultado);
+                aprox = Number((resultado).toFixed(8));
+                entrada.innerHTML = aprox;
+            } else {
+                labelCuenta.innerHTML = input;
             resultado = Math.cos(num1);
             console.log(resultado);
-            aprox = Number((resultado).toFixed(5));
+            aprox = Number((resultado).toFixed(8));
             entrada.innerHTML = aprox;
+            }
             break;
         case "tan":
-            var entrada = document.getElementById("entrada");
-            var input = entrada.innerHTML;
-            var labelCuenta = document.getElementById("labelCuenta");
-            labelCuenta.innerHTML = input;
+            if (num1 == 0) {
+                labelCuenta.innerHTML = input;
+                resultado = Math.tan(num2);
+                console.log(resultado);
+                aprox = Number((resultado).toFixed(8));
+                entrada.innerHTML = aprox;
+            } else{
+                labelCuenta.innerHTML = input;
             resultado = Math.tan(num1);
             console.log(resultado);
-            aprox = Number((resultado).toFixed(5));
+            aprox = Number((resultado).toFixed(8));
             entrada.innerHTML = aprox;
+            }
             break;
         case "cot":
-            console.log("en cotangente")
-            var entrada = document.getElementById("entrada");
-            var input = entrada.innerHTML;
-            var labelCuenta = document.getElementById("labelCuenta");
-            labelCuenta.innerHTML = input;
-            resultado = 1 / (Math.tan(num1));
-            console.log(resultado);
-            aprox = Number((resultado).toFixed(5));
+            if (num1  == 0 ) {
+                labelCuenta.innerHTML = input;
+                resultado = 1 / (Math.tan(num2));
+                console.log(resultado);
+                aprox = Number((resultado).toFixed(8));
             entrada.innerHTML = aprox;
+            } else{
+                labelCuenta.innerHTML = input;
+                resultado = 1 / (Math.tan(num1));
+                console.log(resultado);
+                aprox = Number((resultado).toFixed(8));
+                entrada.innerHTML = aprox;
+            }
             break;
     }
 
@@ -439,3 +458,21 @@ function vaciarCuentas() {
 
     cuenta.length = 0;
 }
+
+
+const numCommas = ( number ) => {
+    return number
+    .toString()
+    .replace(
+        /\B(?=(\d{3})+(?!\d))/g, ","
+        );
+}
+
+const numSinComas = (number) => {
+    return number
+    .toString()
+    .replace(
+        /,/g, ""
+    )
+}
+
