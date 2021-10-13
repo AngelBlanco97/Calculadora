@@ -1,6 +1,16 @@
 
 var cuenta= [];
 
+window.setInterval(() => {
+    var entrada = document.getElementById("entrada");
+    try {
+        entrada.scrollBy(100,0)
+    } catch (error) {
+        stop;
+    }
+}, 1)
+
+
 
 function sumar() { 
     let accion = "+";
@@ -18,7 +28,6 @@ function sumar() {
         entrada.innerHTML = input + accion;
     }
 
-    console.log(cuenta);
 }
 
 
@@ -84,9 +93,7 @@ function igualar(){
         var entrada = document.getElementById("entrada");
         var input = entrada.innerHTML;
         var array = input.split(accion);
-        console.log(array);
         cuenta.push(array[1]);
-        console.log(cuenta);
         actualizacion();
     }
 }
@@ -180,27 +187,31 @@ function actualizacion() {
     var input = entrada.innerHTML;
     var labelCuenta = document.getElementById("labelCuenta");
 
-    var num1 = cuenta[0];
-    var num2 = cuenta[2];
-    var acc = cuenta[1];
-    var switche = ""
+    try {
+        
+        var num1 = cuenta[0];
+        var num2 = cuenta[2];
+        var acc = cuenta[1];
+        var switche = ""
 
-    num1 = numSinComas(num1);
-    num2 = numSinComas(num2);
+        num1 = numSinComas(num1);
+        num2 = numSinComas(num2);
 
-    for (var i = 0; i < acc.length; i++) {
-        switche = switche + acc.charAt(i);
-    }
-
+        for (var i = 0; i < acc.length; i++) {
+            switche = switche + acc.charAt(i);
+        }
+        } catch (error) {
+            desconfiguracion();
+        }
 
     switch (switche) {
         case "+":
             labelCuenta.innerHTML = input;
             resultado = (parseFloat(num1) + parseFloat(num2));
-            console.log(resultado)
             aprox = Number((resultado).toFixed(8));
             aprox = numCommas(aprox);
             entrada.innerHTML = aprox
+            
             break;
         case '-':
             labelCuenta.innerHTML = input;
@@ -249,44 +260,38 @@ function actualizacion() {
         case "cos":
             if (num1 == 0) {
                 labelCuenta.innerHTML = input;
-                resultado = Math.cos(num2);
-                console.log(resultado);
+                resultado = Math.cos(num2 *(Math.PI / 180))
                 aprox = Number((resultado).toFixed(8));
                 entrada.innerHTML = aprox;
             } else {
                 labelCuenta.innerHTML = input;
-            resultado = Math.cos(num1);
-            console.log(resultado);
-            aprox = Number((resultado).toFixed(8));
-            entrada.innerHTML = aprox;
+                resultado = Math.cos(num1 *(Math.PI / 180))
+                aprox = Number((resultado).toFixed(8));
+                entrada.innerHTML = aprox;
             }
             break;
         case "tan":
             if (num1 == 0) {
                 labelCuenta.innerHTML = input;
-                resultado = Math.tan(num2);
-                console.log(resultado);
+                resultado = Math.tan(num2 *(Math.PI / 180));
                 aprox = Number((resultado).toFixed(8));
                 entrada.innerHTML = aprox;
             } else{
                 labelCuenta.innerHTML = input;
-            resultado = Math.tan(num1);
-            console.log(resultado);
-            aprox = Number((resultado).toFixed(8));
-            entrada.innerHTML = aprox;
+                resultado = Math.tan(num1 *(Math.PI / 180))
+                aprox = Number((resultado).toFixed(8));
+                entrada.innerHTML = aprox;
             }
             break;
         case "cot":
             if (num1  == 0 ) {
                 labelCuenta.innerHTML = input;
                 resultado = 1 / (Math.tan(num2));
-                console.log(resultado);
                 aprox = Number((resultado).toFixed(8));
             entrada.innerHTML = aprox;
             } else{
                 labelCuenta.innerHTML = input;
                 resultado = 1 / (Math.tan(num1));
-                console.log(resultado);
                 aprox = Number((resultado).toFixed(8));
                 entrada.innerHTML = aprox;
             }
@@ -469,10 +474,22 @@ const numCommas = ( number ) => {
 }
 
 const numSinComas = (number) => {
-    return number
-    .toString()
-    .replace(
-        /,/g, ""
-    )
+    try {
+        return number
+        .toString()
+        .replace(
+            /,/g, ""
+        )
+    } catch (error) {
+        return ""
+    }
+}
+
+
+function desconfiguracion(){ 
+    var entrada = document.getElementById("entrada");
+    var labelCuenta = document.getElementById("labelCuenta");
+    labelCuenta.innerHTML = "";
+    entrada.innerHTML = "Syntax Error"
 }
 

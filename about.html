@@ -115,10 +115,10 @@
                 <main class="bd-main order-1">
                     <div class="bd-intro ps-lg-1">
                         <div class="d-md-flex  align-items-center justify-content-between">
-                            <h1 class="bd-title" id="content">Introduccion</h1>
+                            <h1 class="bd-title" id="content">Introducción</h1>
                             <a class="btn btn-sm btn-bd-light mb-2 mb-md-0 buttonGit" href="https://github.com/AngelBlanco97/Calculadora" title="View and edit this file on GitHub" target="_blank" rel="noopener">View on GitHub</a>
                         </div>
-                        <p class="bd-lead">La calculadora es una herramienta que nos permitira realizar cualquier calculo matematico que te propongas. Este proyecto ha sido creado por Angel Blanco, para el trabajo de Acceso a Datos en U-Tad. Mediante esta documentacion, conoceras mas informacion sobre como usarla en tu dia a dia, aunque todos sepamos como funciona, quizas venga bien echarle un ojo a la documentacion.</p>
+                        <p class="bd-lead">La calculadora es una herramienta que nos permitirá realizar cualquier cálculo matemático que te propongas. Este proyecto ha sido creado por Angel Blanco, para el trabajo de Acceso a Datos en U-Tad. Mediante esta documentación, conocerás más información sobre cómo usarla en tu día a día, aunque todos sepamos como funciona, quizás venga bien echarle un ojo a la documentacion.</p>
                     </div>
                     <div class="bd-content ps-lg-2">
                         <div class="card-subtitle"> 
@@ -129,15 +129,15 @@
                                 <button  type= "button" class="btn buttonFunctionss">=</button></h2>
                             
                         </div>
-                        <p>A la hora de relizar una cuenta basica, tales como <code>suma</code>, <code>restas</code>, <code>multiplicacion</code> o <code>division</code> tendremos que poner nuestro primer argumento, la decision y el segundo argumento. Para finalizar y que nos de el resultado, tendra que pulsar al boton de <code>igual</code>.</p>
-                        <p><strong>Es importante que siempre se pasen dos argumentos. No podemos meter mas de dos parametros en cada funcion.</strong></p>
+                        <p>A la hora de realizar una cuenta básica, tales como <code>suma</code>, <code>restas</code>, <code>multiplicación</code> o <code>división</code> tendremos que poner nuestro primer parámetro, la decisión y el segundo parámetro. Para finalizar y que nos de el resultado, tendrás que pulsar al boton de <code>igual</code>.</p>
+                        <p><strong>Es importante que siempre se pasen dos parámetros. No podemos meter mas de dos parámetros en cada función.</strong> Por lo menos temporalmente. Actualizaré para que pueda hacerse varias cuentas a la vez. </p>
                         <div class="bd-callout highlight" style="display: flex; justify-content: space-around;">
                             <div class="card col-xs-12" style="width: 18rem;">
                                 <img src="images/ParametrosRight.png" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Forma Correcta</h5>
                                     <p>5 + 2 = 7</p>
-                                    <p class="card-text">Ejemplo correcto con dos parametros introducidos para una funcion de <code>sumar</code>.</p>
+                                    <p class="card-text">Ejemplo correcto con dos parámetros introducidos para una función de <code>sumar</code>.</p>
                                 </div>
                             </div>
                             <div class="card col-xs-12" style="width: 18rem;">
@@ -145,7 +145,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Forma Incorrecta</h5>
                                     <p>5 + 2 + 6 ≠ 10</p>
-                                    <p class="card-text">Ejemplo incorrecto con tres parametros introducidos para una funcion de <code>sumar</code>.</p>
+                                    <p class="card-text">Ejemplo incorrecto con tres parámetros introducidos para una función de <code>sumar</code>.</p>
                                 </div>
                             </div>
                         </div>
@@ -154,84 +154,125 @@
                             <div class="code">
                                 <pre>
                                     <code style="text-align: start;">
+
     function actualizacion() {
         var entrada = document.getElementById("entrada");
         var input = entrada.innerHTML;
         var labelCuenta = document.getElementById("labelCuenta");
-    
+
         var num1 = cuenta[0];
         var num2 = cuenta[2];
         var acc = cuenta[1];
         var switche = ""
-    
+
+        num1 = numSinComas(num1);
+        num2 = numSinComas(num2);
+
         for (var i = 0; i < acc.length; i++) {
             switche = switche + acc.charAt(i);
         }
-    
-    
+
+
         switch (switche) {
             case "+":
                 labelCuenta.innerHTML = input;
                 resultado = (parseFloat(num1) + parseFloat(num2));
-                aprox = Number((resultado).toFixed(5));
+                console.log(resultado)
+                aprox = Number((resultado).toFixed(8));
+                aprox = numCommas(aprox);
                 entrada.innerHTML = aprox
                 break;
             case '-':
                 labelCuenta.innerHTML = input;
                 resultado = (parseFloat(num1) - parseFloat(num2));
-                aprox = Number((resultado).toFixed(5));
+                aprox = Number((resultado).toFixed(8));
                 entrada.innerHTML = aprox
                 break;
             case 'x':
                 labelCuenta.innerHTML = input;
                 resultado = (parseFloat(num1) * parseFloat(num2));
-                aprox = Number((resultado).toFixed(5));
+                aprox = Number((resultado).toFixed(8));
                 entrada.innerHTML = aprox
                 break;
             case '÷':
                 labelCuenta.innerHTML = input;
                 resultado = (parseFloat(num1) / parseFloat(num2));
-                aprox = Number((resultado).toFixed(5));
+                aprox = Number((resultado).toFixed(8));
                 entrada.innerHTML = aprox
                 break;
             case '√':
+                if (num1 == 0) {
+                    labelCuenta.innerHTML = input;
+                    resultado = Math.sqrt(num2);
+                    aprox = Number((resultado).toFixed(8));
+                    entrada.innerHTML = aprox;
+                } else {
                 labelCuenta.innerHTML = input;
                 resultado = Math.sqrt(num1);
-                aprox = Number((resultado).toFixed(5));
+                aprox = Number((resultado).toFixed(8));
                 entrada.innerHTML = aprox;
+                }
                 break;
             case 'sen':
-                labelCuenta.innerHTML = input;
-                resultado = Math.sin(num1);
-                console.log(resultado);
-                aprox = Number((resultado).toFixed(5));
+                if (num1 == 0){
+                    labelCuenta.innerHTML = input;
+                    resultado = Math.sin(num2 *(Math.PI / 180))
+                    aprox = Number((resultado).toFixed(8));
+                    entrada.innerHTML = aprox;
+                } else {
+                    labelCuenta.innerHTML = input;
+                resultado = Math.sin(num1 *(Math.PI / 180))
+                aprox = Number((resultado).toFixed(8));
                 entrada.innerHTML = aprox;
+                }
                 break;
             case "cos":
-                labelCuenta.innerHTML = input;
-                resultado = Math.cos(num1);
-                console.log(resultado);
-                aprox = Number((resultado).toFixed(5));
-                entrada.innerHTML = aprox;
+                if (num1 == 0) {
+                    labelCuenta.innerHTML = input;
+                    resultado = Math.cos(num2 *(Math.PI / 180))
+                    aprox = Number((resultado).toFixed(8));
+                    entrada.innerHTML = aprox;
+                } else {
+                    labelCuenta.innerHTML = input;
+                    resultado = Math.cos(num1 *(Math.PI / 180))
+                    console.log(resultado);
+                    aprox = Number((resultado).toFixed(8));
+                    entrada.innerHTML = aprox;
+                }
                 break;
             case "tan":
-                labelCuenta.innerHTML = input;
-                resultado = Math.tan(num1);
-                console.log(resultado);
-                aprox = Number((resultado).toFixed(5));
-                entrada.innerHTML = aprox;
+                if (num1 == 0) {
+                    labelCuenta.innerHTML = input;
+                    resultado = Math.tan(num2 *(Math.PI / 180));
+                    aprox = Number((resultado).toFixed(8));
+                    entrada.innerHTML = aprox;
+                } else{
+                    labelCuenta.innerHTML = input;
+                    resultado = Math.tan(num1 *(Math.PI / 180))
+                    aprox = Number((resultado).toFixed(8));
+                    entrada.innerHTML = aprox;
+                }
                 break;
             case "cot":
-                labelCuenta.innerHTML = input;
-                resultado = 1 / (Math.tan(num1));
-                console.log(resultado);
-                aprox = Number((resultado).toFixed(5));
+                if (num1  == 0 ) {
+                    labelCuenta.innerHTML = input;
+                    resultado = 1 / (Math.tan(num2));
+                    console.log(resultado);
+                    aprox = Number((resultado).toFixed(8));
                 entrada.innerHTML = aprox;
+                } else{
+                    labelCuenta.innerHTML = input;
+                    resultado = 1 / (Math.tan(num1));
+                    console.log(resultado);
+                    aprox = Number((resultado).toFixed(8));
+                    entrada.innerHTML = aprox;
+                }
                 break;
         }
-    
+
         cuenta.length = 0;
     }
+
                                     </code>
                                 </pre>
                             </div>
@@ -246,6 +287,87 @@
                                             <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z"/>
                                         </svg>
                                     </button></h2>
+                                    <p>Las teclas de control básicas, te ayudan a corregir los errores o limpiar cualquier cuenta anterior para que te resulte más fácil seguir. El botón rojo, <code>elimina</code> toda las cuentas y números que tengas preparados para calcular. Por su parte, el botón de retroceso <code>borra</code> el último dígito que se encuentre en la caja principal, sobre todo por si nos hemos equivocado escribiendo.</p>
+                                    <div class="highlight">
+                                        <h5><strong>Como se ha programado <code> ELIMINAR TODO</code> y <code> ELIMINAR ULTIMO DIGITO</code></h5>
+                                        <div class="code">
+                                            <pre>
+                                                <code style="text-align: start;">
+                                                
+function quitarDigito(){
+    var entrada = document.getElementById("entrada");
+    var input = entrada.innerHTML;
+    restar = input.split("");
+    restar.pop();
+
+    var textoFinal = "";
+    if (input == "0" || input == "") {
+        entrada.innerHTML = "0";
+    } else{
+    for (var i=0 ; i < restar.length; i ++) {
+        var digito = restar[i];
+        textoFinal = textoFinal+digito;
+    }
+    entrada.innerHTML = textoFinal;
+}
+    
+}    
+
+
+
+function vaciarCuentas() { 
+    var entrada = document.getElementById("entrada");
+    entrada.innerHTML = "0";
+
+    var labelCuenta = document.getElementById("labelCuenta");
+    labelCuenta.innerHTML = "";
+
+    cuenta.length = 0;
+}
+                                                </code>
+                                            </pre>
+                            </div>
+                        </div>
+                        
+                        <div class="bd-content ps-lg-2">
+                            <div class="card-subtitle">
+                                <h2>Funciones especiales</h2>
+                                    <p>Encontrarás diferentes funciones que permitirán saber en todo momento la cantidad de digitos que estás añadiendo. Las comas separan los miles, y los puntos separarán los decimales.</p>
+                                    <div class="highlight">
+                                        <h5><strong>Como se ha programado <code> decimales </code> y <code>  millares</code></h5>
+                                        <div class="code">
+                                            <pre>
+                                                <code style="text-align: start;">
+                                                
+function setDecimales() {
+    var entrada = document.getElementById("entrada");
+    var input = entrada.innerHTML;
+
+    if (input == "0" || input == "") {
+        entrada.innerHTML = "0.";
+    } else {
+        entrada.innerHTML = input + ".";
+    }
+}
+
+const numCommas = ( number ) => {
+    return number
+    .toString()
+    .replace(
+        /\B(?=(\d{3})+(?!\d))/g, ","
+        );
+}
+
+const numSinComas = (number) => {
+    return number
+    .toString()
+    .replace(
+        /,/g, ""
+    )
+}
+
+                                                </code>
+                                            </pre>
                             </div>
                         </div>
                     </div>
