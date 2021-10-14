@@ -286,12 +286,12 @@ function actualizacion() {
         case "cot":
             if (num1  == 0 ) {
                 labelCuenta.innerHTML = input;
-                resultado = 1 / (Math.tan(num2));
+                resultado = 1 / (Math.tan(num2 * (Math.PI / 180)));
                 aprox = Number((resultado).toFixed(8));
             entrada.innerHTML = aprox;
             } else{
                 labelCuenta.innerHTML = input;
-                resultado = 1 / (Math.tan(num1));
+                resultado = 1 / (Math.tan(num1 * (Math.PI / 180)));
                 aprox = Number((resultado).toFixed(8));
                 entrada.innerHTML = aprox;
             }
